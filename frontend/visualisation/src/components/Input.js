@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InputUser = styled.input.attrs({
+const Input = styled.input.attrs({
   // we can define static props
   type: 'text',
 
@@ -24,4 +24,4 @@ const InputUser = styled.input.attrs({
   padding: ${props => props.padding};
 `;
 
-export default InputUser;
+export default Input;
