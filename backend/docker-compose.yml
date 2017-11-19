@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app-server:
+    build: ./app-server
+    ports:
+      - 5000:8080
+  db-server:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
