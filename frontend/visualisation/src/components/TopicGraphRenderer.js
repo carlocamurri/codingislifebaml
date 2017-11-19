@@ -6,7 +6,11 @@ import Dagre from 'react-sigma/lib/Dagre';
 
 var TopicGraphRenderer = (props) => {
     return (
-        <Sigma graph={{nodes: props.nodes, edges: props.edges}} settings={{drawEdges: true, clone: false}}>
+        <Sigma 
+            renderer="webgl"
+            graph={{nodes: props.nodes, edges: props.edges}} 
+            settings={{drawEdges: true, clone: false}}
+            >
             <RelativeSize initialSize={8} />
             <RandomizeNodePositions />
         </Sigma>

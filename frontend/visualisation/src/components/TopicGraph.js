@@ -8,19 +8,22 @@ var testNodes = [
     {
         id: "n0",
         label: "Microsoft",
-        myInfo: "Hello"
+        searchable: true
     },
     {
         id: "n1",
-        label: "Apple"
+        label: "Apple",
+        searchable: true
     },
     {
         id: "n2",
-        label: "Google"
+        label: "Google",
+        searchable: true
     },
     {
         id: "n3",
-        label: "Amazon"
+        label: "Amazon",
+        searchable: true
     }
 ];
 
@@ -49,30 +52,15 @@ class TopicGraph extends Component {
         this.state = {
             nodes: testNodes,
             edges: testEdges,
-            currentNode: null
+            currentNode: "n0"
         };
 
         //this.expandNode() = this.expandNode.bind(this);
     }
 
-    onButtonClickOne() { 
-        getTitlesAndTopics("Microsoft");
-    }
-
-    onButtonClickTwo() {
-        getNews("Microsoft");
-    }
-
-    onButtonClickThree() {
-        getNews("Microsoft");
-    }
-
     render() {
         return (
             <div>
-                <button onClick={this.onButtonClickOne}>DATAA</button>
-                <button onClick={this.onButtonClickTwo}>NEWS</button>
-                <button onClick={this.onButtonClickThree}>FINANCE</button>
                 <TopicGraphRenderer nodes={this.state.nodes} edges={this.state.edges}/>
             </div>
         );
