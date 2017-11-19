@@ -21,12 +21,13 @@ const Header = () => (
 const HeaderContent = styled.div`
   display: flex;
   flex: 1;
-  height: 42rem;
+  height: 36rem;
   width: 100%;
   background-color: #d1d1d1;
 
   @media only screen and (min-width: 320px) and (max-width: 640px) {
     flex-direction: column;
+    height: 55rem;
   }
 `;
 
@@ -36,6 +37,5 @@ const SmallGraphsBlock = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: green;
 `;
 export default Header;

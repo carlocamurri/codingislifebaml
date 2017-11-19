@@ -17,6 +17,10 @@ const Content = styled.div`
   height: 100%;
   width: 100%;
   background-color: #ededed;
+
+  @media only screen and (min-width: 320px) and (max-width: 640px) {
+    flex: 1;
+  }
 `;
 
 export default StockGraph;
