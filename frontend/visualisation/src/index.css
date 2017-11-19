@@ -152,3 +152,7 @@ table {
     url('./assets/fonts/Lato-Medium.woff') format('woff'),
     url('./assets/fonts/Lato-Medium.ttf') format('truetype');
 }
+
+.scroll {
+  background-color: yellow;
+}
