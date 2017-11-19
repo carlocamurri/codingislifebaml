@@ -10,8 +10,8 @@ var TopicGraphRenderer = (props) => {
             renderer="webgl"
             graph={{nodes: props.nodes, edges: props.edges}} 
             settings={{drawEdges: true, clone: false}}
-            >
-            <RelativeSize initialSize={8} />
+            onClickNode={props.onClickNode}>
+            <RelativeSize initialSize={20} />
             <RandomizeNodePositions />
         </Sigma>
     );

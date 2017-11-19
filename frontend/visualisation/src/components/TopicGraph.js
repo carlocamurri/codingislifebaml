@@ -45,6 +45,17 @@ var testEdges = [
     },
 ];
 
+var counter = 10;
+
+function getNewId(forNode) {
+    if (forNode) {
+        return "n" + counter;
+    } else {
+        return "e" + counter;
+    }
+    counter++;
+}
+
 class TopicGraph extends Component {
     constructor(props) {
         super(props);
@@ -55,13 +66,19 @@ class TopicGraph extends Component {
             currentNode: "n0"
         };
 
-        //this.expandNode() = this.expandNode.bind(this);
+        this.expandNode = this.expandNode.bind();
+    }
+
+    expandNode(event) {
+        console.log(event);
+
+        var titlesAndTopics = getTitlesAndTopics(event.data.node.label).titleAndTypes;
     }
 
     render() {
         return (
             <div>
-                <TopicGraphRenderer nodes={this.state.nodes} edges={this.state.edges}/>
+                <TopicGraphRenderer nodes={this.state.nodes} edges={this.state.edges} onClickNode={this.expandNode}/>
             </div>
         );
     }
