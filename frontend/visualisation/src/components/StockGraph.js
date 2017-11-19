@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Text from './Text';
+import SimpleAreaChart from './SimpleAreaChart';
 
 const StockGraph = () => (
   <Content>
-    <Text>StockGraph</Text>
+    <SimpleAreaChart />
   </Content>
 );
 
