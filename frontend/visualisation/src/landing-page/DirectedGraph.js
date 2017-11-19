@@ -36,16 +36,18 @@ class DirectedGrap extends Component {
   };
 
   render() {
-    let filteredData = data.filter(item => {
-      return (
-        item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-      );
+    //TODO: leave this code - filter data
+    // let filteredData = data.filter(item => {
+    //   return (
+    //     item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+    //   );
+    // });
+
+    let listNames = data.map(item => {
+      if (this.state.search.toLowerCase() === item.name.toLowerCase())
+        return item.name;
     });
-    const listNames = filteredData.map(item => (
-      <Text size="xs" bold key={item.id}>
-        {item.name}
-      </Text>
-    ));
+
     return (
       <MainContent>
         <ContentBlock>
@@ -58,7 +60,11 @@ class DirectedGrap extends Component {
               value={this.state.search}
               onChange={this.updateSearch.bind(this)}
             />
-            <ul>{listNames}</ul>
+            <ul>
+              <Text bold size="s">
+                {listNames}
+              </Text>
+            </ul>
           </TextBlock>
           <GraphContent />
         </ContentBlock>
