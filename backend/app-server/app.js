@@ -1,7 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+var cors = require("cors");
 /* Database stuff
 mongoose.connect("mongodb://db-server");
 let db = mongoose.connection;
@@ -18,6 +18,8 @@ db.on('error', function(err) {
 */
 const app = express();
 
+app.use(cors());
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
@@ -33,5 +35,11 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 let Trends = require("./trends-api/trends");
 app.use("/trends", Trends);
+
+let News = require("./news_api/news");
+app.use("/news", News);
+
+let Finance = require("./finance-api/finance");
+app.use("/finance", Finance);
 
 app.listen(8080, () => console.log("\n\n\n\nServer listening on port 8080!\n\n\n\n"));
