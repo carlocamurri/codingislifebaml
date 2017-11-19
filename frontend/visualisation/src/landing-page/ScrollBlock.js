@@ -7,7 +7,7 @@ import ScrollIndicator from '../components/ScrollIndicator';
 class ScrollBlock extends Component {
   scrollToBottom() {
     window.scrollTo({
-      top: 1400,
+      top: 1270,
       behavior: 'smooth'
     });
   }

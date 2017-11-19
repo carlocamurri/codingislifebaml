@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MainContent from '../components/MainContent';
 import Oval from '../components/Oval';
 import Text from '../components/Text';
+import Input from '../components/Input';
 
 const data = [
   {
@@ -55,8 +56,8 @@ class DirectedGraph extends Component {
             <Oval />
           </OvalContainer>
           <TextBlock>
-            <input
-              type="text"
+            <Input
+              placeholder="Search"
               value={this.state.search}
               onChange={this.updateSearch.bind(this)}
             />
