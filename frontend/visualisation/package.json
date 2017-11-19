@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.19.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-media": "^1.6.1",
     "react-scripts": "1.0.17",
     "react-sigma": "^1.2.29",
+    "recharts": "^1.0.0-beta.2",
     "styled-components": "^2.2.3"
   },
   "scripts": {

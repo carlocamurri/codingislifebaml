@@ -5,8 +5,9 @@ import MainContent from '../components/MainContent';
 import Oval from '../components/Oval';
 import Text from '../components/Text';
 import Input from '../components/Input';
+import ButtonSearch from '../components/ButtonSearch';
 
-import TopicGraph from "../components/TopicGraph";
+import TopicGraph from '../components/TopicGraph';
 
 const data = [
   {
@@ -23,6 +24,16 @@ const data = [
     id: 3,
     name: 'Carlo',
     phone: '333 333 333'
+  },
+  {
+    id: 4,
+    name: 'Annie',
+    phone: '333 333 333'
+  },
+  {
+    id: 5,
+    name: 'Bolo',
+    phone: '333 333 333'
   }
 ];
 
@@ -30,7 +41,8 @@ class DirectedGraph extends Component {
   constructor() {
     super();
     this.state = {
-      search: ''
+      search: '',
+      index: 0
     };
   }
 
@@ -39,17 +51,16 @@ class DirectedGraph extends Component {
   };
 
   render() {
-    //TODO: leave this code - filter data
-    // let filteredData = data.filter(item => {
-    //   return (
-    //     item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-    //   );
-    // });
-
-    let listNames = data.map(item => {
-      if (this.state.search.toLowerCase() === item.name.toLowerCase())
-        return item.name;
+    let filteredData = data.filter(item => {
+      return (
+        item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
     });
+
+    const listNames = filteredData.map(item => (
+      <ButtonSearch key={item.id} text={item.name} />
+    ));
+    const firstThreeItems = listNames.slice(0, 3);
 
     return (
       <MainContent>
@@ -58,16 +69,24 @@ class DirectedGraph extends Component {
             <Oval />
           </OvalContainer>
           <TextBlock>
-            <Input
-              placeholder="Search"
-              value={this.state.search}
-              onChange={this.updateSearch.bind(this)}
-            />
-            <ul>
-              <Text bold size="s">
-                {listNames}
-              </Text>
-            </ul>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }}
+            >
+              <Input
+                placeholder="Search"
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+              />
+              <ul>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  {firstThreeItems}
+                </div>
+              </ul>
+            </div>
           </TextBlock>
           <GraphContent>
             <TopicGraph />

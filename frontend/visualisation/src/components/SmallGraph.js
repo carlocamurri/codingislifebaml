@@ -5,7 +5,7 @@ import Text from './Text';
 
 const SmallGraph = () => (
   <Content>
-    <Text>SmallGraph</Text>
+    <div>SmallGraph</div>
   </Content>
 );
 
