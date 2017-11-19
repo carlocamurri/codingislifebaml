@@ -37,21 +37,18 @@ var getTitleAndTypes = function(obj) {
     return titleAndTypes;
 };
 
-router.post("/new_node", function(req, res) {
+router.post("/titles_and_topics", function(req, res) {
     if (typeof req.body == 'undefined') {
         throw Error("new_node Request is null");
     } else {
         googleTrends.relatedTopics(getSearchOptions(req.body.keyword)).then((values) => {
             values = JSON.parse(values);
             titleAndTypes = getTitleAndTypes(values);
-            console.log(JSON.stringify(titleAndTypes, null, 4));
-            res.send(values);
+            res.send(titleAndTypes);
         }).catch((err) => {
             console.log(err);
         });
     }
 });
-
-
 
 module.exports = router;
