@@ -12,28 +12,71 @@ import TopicGraph from '../components/TopicGraph';
 const data = [
   {
     id: 1,
-    name: 'Patryk',
-    phone: '555 555 555'
+    name: 'Bitcoin'
   },
   {
     id: 2,
-    name: 'Peter',
-    phone: '444 444 444'
+    name: 'IOTA'
   },
   {
     id: 3,
-    name: 'Carlo',
-    phone: '333 333 333'
+    name: 'Ethereum'
   },
   {
     id: 4,
-    name: 'Annie',
-    phone: '333 333 333'
+    name: 'Blockchain'
   },
   {
     id: 5,
-    name: 'Bolo',
-    phone: '333 333 333'
+    name: 'NVIDIA'
+  },
+  {
+    id: 6,
+    name: 'GPU'
+  },
+  {
+    id: 7,
+    name: 'Cryptocurrency'
+  },
+  {
+    id: 8,
+    name: 'Mining'
+  },
+  {
+    id: 9,
+    name: 'CPU'
+  },
+  {
+    id: 10,
+    name: 'Apple'
+  },
+  {
+    id: 11,
+    name: 'Bank of America'
+  },
+  {
+    id: 12,
+    name: 'ARM'
+  },
+  {
+    id: 13,
+    name: 'Intel'
+  },
+  {
+    id: 14,
+    name: 'Samsung'
+  },
+  {
+    id: 15,
+    name: 'Dollars'
+  },
+  {
+    id: 16,
+    name: 'Pound Sterling'
+  },
+  {
+    id: 17,
+    name: 'Euro'
   }
 ];
 
