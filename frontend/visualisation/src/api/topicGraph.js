@@ -1,12 +1,16 @@
 class Node {
-    constructor(id, name) {
+    constructor(id, label) {
         this.id = id;
-        this.name = name;
+        this.label = label;
     }
 }
 
 class Edge {
-
+    constructor(id, source, target) {
+        this.id = id;
+        this.source = source;
+        this.target = target;
+    }
 }
 
 class TopicGraph {
@@ -15,7 +19,11 @@ class TopicGraph {
         this.edges = []
     }
 
-    addNode(id, name) {
-        this.nodes.push(new Node(id, name));
+    addNode(id, label) {
+        this.nodes.push(new Node(id, label));
+    }
+
+    addEdge(id, source, target) {
+        this.edges.push(new Edge(id, source, target));
     }
 }
