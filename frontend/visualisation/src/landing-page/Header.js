@@ -10,8 +10,12 @@ const Header = () => (
     <HeaderContent>
       <StockGraph />
       <SmallGraphsBlock>
-        <SmallGraph />
-        <SmallGraph />
+        <SmallGraph
+          text="Cards Against Humanity buys piece of the U.S. border so Trump can't
+          build his wall"
+          text2="BREAKING: China May Cut Off Cheap Power To Bitcoin Miners?"
+        />
+        <SmallGraph text="Daily Sentiment Score" text3="0.54" />
       </SmallGraphsBlock>
     </HeaderContent>
   </MainContent>

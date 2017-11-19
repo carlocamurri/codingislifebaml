@@ -12,28 +12,11 @@ import TopicGraph from '../components/TopicGraph';
 const data = [
   {
     id: 1,
-    name: 'Patryk',
-    phone: '555 555 555'
+    name: 'Bitcoin'
   },
   {
     id: 2,
-    name: 'Peter',
-    phone: '444 444 444'
-  },
-  {
-    id: 3,
-    name: 'Carlo',
-    phone: '333 333 333'
-  },
-  {
-    id: 4,
-    name: 'Annie',
-    phone: '333 333 333'
-  },
-  {
-    id: 5,
-    name: 'Bolo',
-    phone: '333 333 333'
+    name: 'Oil market'
   }
 ];
 
