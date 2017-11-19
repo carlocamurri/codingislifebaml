@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { InstantSearch, Hits, SearchBox } from 'react-instantsearch/dom';
 
 import MainContent from '../components/MainContent';
 import Oval from '../components/Oval';
@@ -28,18 +27,23 @@ class DirectedGrap extends Component {
   constructor() {
     super();
     this.state = {
-      search: 'Product'
+      search: ''
     };
   }
 
   updateSearch = event => {
-    console.log(event);
+    this.setState({ search: event.target.value.substr(0, 20) });
   };
 
   render() {
-    const listNames = data.map(items => (
-      <Text size="xs" bold key={items.id}>
-        {items.name}
+    let filteredData = data.filter(item => {
+      return (
+        item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
+    const listNames = filteredData.map(item => (
+      <Text size="xs" bold key={item.id}>
+        {item.name}
       </Text>
     ));
     return (
@@ -52,7 +56,7 @@ class DirectedGrap extends Component {
             <input
               type="text"
               value={this.state.search}
-              onChange={this.updateSearch}
+              onChange={this.updateSearch.bind(this)}
             />
             <ul>{listNames}</ul>
           </TextBlock>
