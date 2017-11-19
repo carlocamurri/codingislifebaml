@@ -47,13 +47,12 @@ class SimpleAreaChart extends Component {
   getRandomArbitrary = (min, max) => {
     return this.setState({
       data: [
-        { date: 'Page A', uv: Math.random() * (max - min) + min },
-        { date: 'Page B', uv: Math.random() * (max - min) + min },
-        { date: 'Page C', uv: Math.random() * (max - min) + min },
-        { date: 'Page D' },
-        { date: 'Page E', uv: Math.random() * (max - min) + min },
-        { date: 'Page F', uv: Math.random() * (max - min) + min },
-        { date: 'Page G', uv: Math.random() * (max - min) + min }
+        { date: '2017-01', uv: Math.random() * (max - min) + min },
+        { date: '2017-03', uv: Math.random() * (max - min) + min },
+        { date: '2017-05', uv: Math.random() * (max - min) + min },
+        { date: '2017-07' },
+        { date: '2017-09', uv: Math.random() * (max - min) + min },
+        { date: '2017-11', uv: Math.random() * (max - min) + min }
       ]
     });
   };
