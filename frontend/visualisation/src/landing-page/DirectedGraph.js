@@ -24,7 +24,7 @@ const data = [
   }
 ];
 
-class DirectedGrap extends Component {
+class DirectedGraph extends Component {
   constructor() {
     super();
     this.state = {
@@ -86,4 +86,4 @@ const GraphContent = styled.div`
   width: 100%;
   background-color: #ededed;
 `;
-export default DirectedGrap;
+export default DirectedGraph;
