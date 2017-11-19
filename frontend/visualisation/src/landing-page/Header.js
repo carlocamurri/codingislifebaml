@@ -4,15 +4,14 @@ import styled from 'styled-components';
 import StockGraph from '../components/StockGraph';
 import SmallGraph from '../components/SmallGraph';
 import MainContent from '../components/MainContent';
-import Text from '../components/Text';
 
 const Header = () => (
   <MainContent>
     <HeaderContent>
       <StockGraph />
       <SmallGraphsBlock>
-        <SmallGraph>Hello</SmallGraph>
-        <SmallGraph>Hello</SmallGraph>
+        <SmallGraph />
+        <SmallGraph />
       </SmallGraphsBlock>
     </HeaderContent>
   </MainContent>
