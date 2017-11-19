@@ -1,18 +1,15 @@
 var axios = require("axios");
 
-export function getTitlesAndTopics(searchKeyword) {
-    console.log("Called");
-    var titlesAndTopics = {};
+export function getTitlesAndTopics(searchKeyword, storeHere) {
     axios.post("http://localhost:8080/trends/titles_and_topics", {
         keyword: searchKeyword
     }).then(function(response) {
+        console.log("Called");
         console.log("Data obtained");
-        titlesAndTopics = response.data;
-        console.log(titlesAndTopics);
+        console.log(response.data);
     }).catch(function(error) {
         console.log("error");
         console.log(error);
     });
-    return titlesAndTopics;
 };
 

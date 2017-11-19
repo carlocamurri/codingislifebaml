@@ -28,25 +28,9 @@ var getTitleAndTypes = function(obj) {
     };
     console.log(obj.default);
     obj.default.rankedList.forEach((list) => {
-        var total_list = INDEXABLE_TYPES.concat(GENERIC_TYPES);
-        console.log(total_list);
-        var filteredList = list.rankedKeyword.filter((element) => {
-            console.log(element);
-            var isSubstring = true;
-            var newList = total_list.forEach((item) => {
-                if (element.topic.type.indexOf(item) !== -1) {
-                    
-                } else {
-                    console.log(element.topic.type, item);
-                    isSubstring = false;
-                }
-            });
-            return isSubstring;
-        });
         list.rankedKeyword.forEach((keyword) => {
             titleAndTypes.titleAndTypes.push({
                 label: keyword.topic.title,
-                searchable: true 
             });
         });
     });

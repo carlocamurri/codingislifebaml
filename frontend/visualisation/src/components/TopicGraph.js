@@ -7,54 +7,37 @@ import { getNews } from "../api/news";
 var testNodes = [
     {
         id: "n0",
-        label: "Microsoft",
-        searchable: true
-    },
-    {
-        id: "n1",
-        label: "Apple",
-        searchable: true
-    },
-    {
-        id: "n2",
-        label: "Google",
-        searchable: true
-    },
-    {
-        id: "n3",
-        label: "Amazon",
+        label: "Bitcoin",
+        size: 20,
         searchable: true
     }
 ];
 
 var testEdges = [
-    {
-        id: "e0",
-        source: "n0",
-        target: "n1"
-    },
-    {
-        id: "e1",
-        source: "n1",
-        target: "n2"
-    },
-    {
-        id: "e2",
-        source: "n2",
-        target: "n3"
-    },
+    
 ];
 
-var counter = 10;
+var BITCOIN_NODES = [
+    "Mining",
+    "NVidia Corporation",
+    "CryptoCurrency",
+    "Ethereum"
+];
 
-function getNewId(forNode) {
+function getNewId(forNode, name) {
+    
     if (forNode) {
-        return "n" + counter;
+        return "n" + name.length;
     } else {
-        return "e" + counter;
+        return "e" + name.length;
     }
-    counter++;
 }
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
 
 class TopicGraph extends Component {
     constructor(props) {
@@ -66,13 +49,33 @@ class TopicGraph extends Component {
             currentNode: "n0"
         };
 
-        this.expandNode = this.expandNode.bind();
+        this.expandNode = this.expandNode.bind(this);
     }
 
     expandNode(event) {
         console.log(event);
-
-        var titlesAndTopics = getTitlesAndTopics(event.data.node.label).titleAndTypes;
+        if (event.data.node.label === "Bitcoin") {
+            var newNodes = [];
+            BITCOIN_NODES.forEach((string) => {
+                var newId = getNewId(true, string);
+                var posx = Math.random();
+                var posy = Math.random();
+                newNodes.push({
+                    id: newId,
+                    label: string,
+                    x: posx,
+                    y: posy,
+                    size: 20
+                });
+            });
+            var finalNodes = this.state.nodes.concat(newNodes);
+            this.setState({
+                nodes: finalNodes
+            });
+            console.log("Callback to update graph called");
+            console.log(this.state.nodes);
+            this.render();
+        }
     }
 
     render() {
