@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  backend-server: 
+    build: ./backend/app-server
+    ports: 
+      - 8080:8080
+  client-server:
+    build: ./frontend/visualisation
+    ports: 
+      - 80:5000
