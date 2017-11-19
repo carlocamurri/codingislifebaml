@@ -6,6 +6,8 @@ import Oval from '../components/Oval';
 import Text from '../components/Text';
 import Input from '../components/Input';
 
+import TopicGraph from "../components/TopicGraph";
+
 const data = [
   {
     id: 1,
@@ -67,7 +69,9 @@ class DirectedGraph extends Component {
               </Text>
             </ul>
           </TextBlock>
-          <GraphContent />
+          <GraphContent>
+            <TopicGraph />
+          </GraphContent>
         </ContentBlock>
       </MainContent>
     );
