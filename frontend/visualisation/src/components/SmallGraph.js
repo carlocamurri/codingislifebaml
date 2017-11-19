@@ -16,7 +16,7 @@ const Content = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color: green;
+  background-color: #d4d4d4;
 `;
 
 export default SmallGraph;
