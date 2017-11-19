@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "moment": "^2.19.2",
-=======
     "axios": "^0.17.1",
->>>>>>> master
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-media": "^1.6.1",
