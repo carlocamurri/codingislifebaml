@@ -5207,6 +5207,10 @@ react-scripts@1.0.17:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-sigma@^1.2.29:
+  version "1.2.29"
+  resolved "https://registry.npmjs.org/react-sigma/-/react-sigma-1.2.29.tgz#a34ac5143537d6803c2d2aca36413adf1a2320cb"
+
 react@^16.1.1:
   version "16.1.1"
   resolved "https://registry.npmjs.org/react/-/react-16.1.1.tgz#d5c4ef795507e3012282dd51261ff9c0e824fe1f"
