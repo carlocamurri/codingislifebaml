@@ -7,40 +7,37 @@ import { getNews } from "../api/news";
 var testNodes = [
     {
         id: "n0",
-        label: "Microsoft",
-        myInfo: "Hello"
-    },
-    {
-        id: "n1",
-        label: "Apple"
-    },
-    {
-        id: "n2",
-        label: "Google"
-    },
-    {
-        id: "n3",
-        label: "Amazon"
+        label: "Bitcoin",
+        size: 20,
+        searchable: true
     }
 ];
 
 var testEdges = [
-    {
-        id: "e0",
-        source: "n0",
-        target: "n1"
-    },
-    {
-        id: "e1",
-        source: "n1",
-        target: "n2"
-    },
-    {
-        id: "e2",
-        source: "n2",
-        target: "n3"
-    },
+    
 ];
+
+var BITCOIN_NODES = [
+    "Mining",
+    "NVidia Corporation",
+    "CryptoCurrency",
+    "Ethereum"
+];
+
+function getNewId(forNode, name) {
+    
+    if (forNode) {
+        return "n" + name.length;
+    } else {
+        return "e" + name.length;
+    }
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
 
 class TopicGraph extends Component {
     constructor(props) {
@@ -49,31 +46,42 @@ class TopicGraph extends Component {
         this.state = {
             nodes: testNodes,
             edges: testEdges,
-            currentNode: null
+            currentNode: "n0"
         };
 
-        //this.expandNode() = this.expandNode.bind(this);
+        this.expandNode = this.expandNode.bind(this);
     }
 
-    onButtonClickOne() { 
-        getTitlesAndTopics("Microsoft");
-    }
-
-    onButtonClickTwo() {
-        getNews("Microsoft");
-    }
-
-    onButtonClickThree() {
-        getNews("Microsoft");
+    expandNode(event) {
+        console.log(event);
+        if (event.data.node.label === "Bitcoin") {
+            var newNodes = [];
+            BITCOIN_NODES.forEach((string) => {
+                var newId = getNewId(true, string);
+                var posx = Math.random();
+                var posy = Math.random();
+                newNodes.push({
+                    id: newId,
+                    label: string,
+                    x: posx,
+                    y: posy,
+                    size: 20
+                });
+            });
+            var finalNodes = this.state.nodes.concat(newNodes);
+            this.setState({
+                nodes: finalNodes
+            });
+            console.log("Callback to update graph called");
+            console.log(this.state.nodes);
+            this.render();
+        }
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.onButtonClickOne}>DATAA</button>
-                <button onClick={this.onButtonClickTwo}>NEWS</button>
-                <button onClick={this.onButtonClickThree}>FINANCE</button>
-                <TopicGraphRenderer nodes={this.state.nodes} edges={this.state.edges}/>
+                <TopicGraphRenderer nodes={this.state.nodes} edges={this.state.edges} onClickNode={this.expandNode}/>
             </div>
         );
     }

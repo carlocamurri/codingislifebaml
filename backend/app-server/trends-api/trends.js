@@ -1,16 +1,17 @@
 const googleTrends = require("google-trends-api");
 const router = require("express").Router();
 
-START_DATE = new Date(2016, 1, 1);
+var START_DATE = new Date(2016, 1, 1);
 
-INDEXABLE_TYPES = [
-    "currency",
+var INDEXABLE_TYPES = [
+    "Currency",
     "company",
-    "commodities"
+    "Company",
+    "Commodities"
 ];
 
-GENERIC_TYPES = [
-    "topic"
+var GENERIC_TYPES = [
+    "Topic"
 ];
 
 var getSearchOptions = (searchKeyword) => {
@@ -29,8 +30,7 @@ var getTitleAndTypes = function(obj) {
     obj.default.rankedList.forEach((list) => {
         list.rankedKeyword.forEach((keyword) => {
             titleAndTypes.titleAndTypes.push({
-                title: keyword.topic.title,
-                type: keyword.topic.type
+                label: keyword.topic.title,
             });
         });
     });
